@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Header() {
+function NotesHeader() {
     return (
         <div className='notes-app__header'>
             <h1>Notes</h1>
@@ -9,4 +9,4 @@ function Header() {
     )
 }
 
-export default Header;
+export default NotesHeader;

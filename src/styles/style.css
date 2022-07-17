@@ -13,7 +13,7 @@ body {
 /* header */
 
 .notes-app__header {
-  padding: 16px;
+  padding: 5px 16px;
   display: flex;
   align-items: center;
   border-bottom: 1px solid #fff;
@@ -24,21 +24,70 @@ body {
 }
 
 .notes-app__header input {
-  padding: 8px;
-  border-radius: 8px;
+  padding: 8px 16px;
   background-color: transparent;
-  border: 1px solid #aaa;
   color: white;
+  border: none;
+  border-bottom: 1px solid #aaa;
+  width: 20%;
 }
 
 /* main */
 
+.notes-app {
+  margin: 0 auto;
+}
+
+.notes-app__main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 16px;
+  /* padding: 0 15rem; */
+}
+
 .notes-app__main h2 {
-  margin-top: 2rem;
+  margin: 2rem 0;
   text-align: center;
+}
+
+.notes-app__input {
+  margin: 0 auto;
+  max-width: 600px;
 }
 
 .notes-app__input input,
 .notes-app__input textarea {
   display: block;
+  width: 100%;
+}
+
+input,
+textarea {
+  padding: 12px;
+  margin: 12px 0;
+  background-color: transparent;
+  color: white;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #aaa;
+  font-weight: bold;
+}
+
+.notes-app__input button {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  background-color: transparent;
+  color: #fff;
+  font-weight: bold;
+  border: 1px solid #aaa;
+}
+
+.notes-app__input button:hover {
+  background-color: #aaa;
 }

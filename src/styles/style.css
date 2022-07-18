@@ -71,6 +71,10 @@ textarea {
   border-radius: 4px;
 }
 
+textarea {
+  height: 10rem;
+}
+
 input::placeholder,
 textarea::placeholder {
   color: #aaa;

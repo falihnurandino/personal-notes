@@ -15,8 +15,18 @@ class NotesApp extends React.Component {
 
         this.deleteNoteHandler = this.deleteNotesHandler.bind(this);
         this.archiveNoteHandler = this.archiveNotesHandler.bind(this);
+        this.searchTypingHandler = this.searchTypingHandler.bind(this);
     }
 
+    searchTypingHandler(event) {
+        this.setState((prevState) => {
+            return {
+                ...prevState,
+                searchQuery: event.target.value
+            };
+        });
+    }
+    
     deleteNotesHandler(id) {
         this.setState((prevState) => {
             return {
@@ -49,7 +59,7 @@ class NotesApp extends React.Component {
     render() {
         return (
             <div className='notes-app'>
-                <NotesHeader/>
+                <NotesHeader onTyping={this.searchTypingHandler}/>
 
                 <div className='notes-app__main'>
                 <h2>Create a note</h2>

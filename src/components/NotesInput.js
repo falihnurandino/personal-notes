@@ -46,7 +46,7 @@ class NotesInput extends React.Component {
     
     return (
         <div className='notes-app__input'>
-            <form>
+            <form onSubmit={this.onSubmitListener}>
                 <input 
                 type='text' 
                 placeholder='Title'

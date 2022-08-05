@@ -95,3 +95,12 @@ textarea::placeholder {
 .notes-app__input button:hover {
   background-color: #aaa;
 }
+
+.notes-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.notes-item {
+  border: 1px solid #aaa;
+}

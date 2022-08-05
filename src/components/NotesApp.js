@@ -13,9 +13,28 @@ class NotesApp extends React.Component {
             notes: getInitialData()
         };
 
+        this.addNotesHandler = this.addNotesHandler.bind(this);
         this.deleteNoteHandler = this.deleteNotesHandler.bind(this);
         this.archiveNoteHandler = this.archiveNotesHandler.bind(this);
         this.searchTypingHandler = this.searchTypingHandler.bind(this);
+    }
+
+    addNotesHandler({ title, body}) {
+        this.setState((prevState) => {
+            return {
+                ...prevState,
+                notes: [
+                    ...prevState.notes,
+                    {
+                        id: +new Date(),
+                        title,
+                        body,
+                        createdAt: +new Date().toISOString(),
+                        archived: false,
+                    },
+                ],
+            };
+        });
     }
 
     searchTypingHandler(event) {
@@ -63,7 +82,7 @@ class NotesApp extends React.Component {
 
                 <div className='notes-app__main'>
                 <h2>Create a note</h2>
-                <NotesInput/>
+                <NotesInput addNote={this.addNotesHandler}/>
 
                 <h2>Notes</h2>
                 <NotesList 

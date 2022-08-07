@@ -55,6 +55,10 @@ body {
   max-width: 600px;
 }
 
+.notes-app__input p {
+  text-align: right;
+}
+
 .notes-app__input input,
 .notes-app__input textarea {
   display: block;

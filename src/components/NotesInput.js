@@ -47,6 +47,7 @@ class NotesInput extends React.Component {
     return (
         <div className='notes-app__input'>
             <form onSubmit={this.onSubmitListener}>
+                <p>{title.length}/50</p>
                 <input 
                 type='text' 
                 placeholder='Title'
@@ -54,7 +55,7 @@ class NotesInput extends React.Component {
                 value={title} 
                 required
                 />
-                <p>{title.length}/50</p>
+                
                 <textarea 
                 type='text' 
                 placeholder='Write your note'

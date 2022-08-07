@@ -14,8 +14,8 @@ class NotesApp extends React.Component {
         };
 
         this.addNotesHandler = this.addNotesHandler.bind(this);
-        this.deleteNoteHandler = this.deleteNotesHandler.bind(this);
-        this.archiveNoteHandler = this.archiveNotesHandler.bind(this);
+        this.deleteNotesHandler = this.deleteNotesHandler.bind(this);
+        this.archiveNotesHandler = this.archiveNotesHandler.bind(this);
         this.searchTypingHandler = this.searchTypingHandler.bind(this);
     }
 
@@ -29,7 +29,7 @@ class NotesApp extends React.Component {
                         id: +new Date(),
                         title,
                         body,
-                        createdAt: +new Date().toISOString(),
+                        createdAt: new Date().toISOString(),
                         archived: false,
                     },
                 ],

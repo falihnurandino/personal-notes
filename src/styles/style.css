@@ -99,8 +99,11 @@ textarea::placeholder {
 .notes-list {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
 }
 
 .notes-item {
   border: 1px solid #aaa;
+  border-radius: 4px;
+  padding: 8px;
 }

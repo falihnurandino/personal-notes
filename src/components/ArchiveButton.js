@@ -2,7 +2,7 @@ import React from "react";
 
 function ArchiveButton ({ archived, onClick }) {
     return (
-        <button className="warning" onClick={onClick}>
+        <button className="archive-button" onClick={onClick}>
             {archived ? "Move" : "Archived"}
         </button>
     );

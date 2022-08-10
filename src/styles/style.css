@@ -96,14 +96,14 @@ textarea::placeholder {
   padding: 12px;
   border-radius: 8px;
   cursor: pointer;
-  background-color: transparent;
-  color: #a900fd;
+  background-color: #a900fd;
+  color: #fff;
   font-weight: bold;
   border: 2px solid #a900fd;
 }
 
 .notes-app__input button:hover {
-  background-color: #a900fd;
+  background-color: #b628fd;
   color: #fff;
 }
 
@@ -112,7 +112,6 @@ textarea::placeholder {
   margin: 3rem 0 2rem 0;
   font-size: 2rem;
   color: #a900fd;
-  border-bottom: 2px solid #a900fd;
 }
 
 .notes-list {

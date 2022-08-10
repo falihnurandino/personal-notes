@@ -77,21 +77,21 @@ class NotesApp extends React.Component {
 
     render() {
         return (
-            <div className='notes-app'>
+            <div className="notes-app">
                 <NotesHeader onTyping={this.searchTypingHandler}/>
 
-                <div className='notes-app__main'>
-                <h2 className='notes-app__input-title'>Create a note</h2>
+                <div className="notes-app__main">
+                <h2 className="notes-app__input-title">Create a note</h2>
                 <NotesInput addNote={this.addNotesHandler}/>
 
-                <h2 className='notes-app__list-title'>Notes</h2>
+                <h2 className="notes-app__list-title">Notes</h2>
                 <NotesList 
                 list={this.notesList().filter((note) => !note.archived)}
                 deleteNote={this.deleteNotesHandler}
                 archiveNote={this.archiveNotesHandler}
                 />
 
-                <h2 className='notes-app__archived-title'>Archived Notes</h2>
+                <h2 className="notes-app__archived-title">Archived Notes</h2>
                 <NotesList 
                 list={this.notesList().filter((note) => note.archived)}
                 deleteNote={this.deleteNotesHandler}

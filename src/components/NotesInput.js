@@ -45,7 +45,7 @@ class NotesInput extends React.Component {
         const { title, body } = this.state;
     
     return (
-        <div className='notes-app__input'>
+        <div className="notes-app__input">
             <form onSubmit={this.onSubmitListener}>
                 <p>{title.length}/50</p>
                 <input 

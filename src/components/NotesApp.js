@@ -84,7 +84,7 @@ class NotesApp extends React.Component {
                 <h2 className="notes-app__input-title">Create a note</h2>
                 <NotesInput addNote={this.addNotesHandler}/>
 
-                <h2 className="notes-app__list-title">Notes</h2>
+                <h2 className="notes-app__list-title">Active Notes</h2>
                 <NotesList 
                 list={this.notesList().filter((note) => !note.archived)}
                 deleteNote={this.deleteNotesHandler}

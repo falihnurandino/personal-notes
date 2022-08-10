@@ -81,17 +81,17 @@ class NotesApp extends React.Component {
                 <NotesHeader onTyping={this.searchTypingHandler}/>
 
                 <div className='notes-app__main'>
-                <h2>Create a note</h2>
+                <h2 className='notes-app__input-title'>Create a note</h2>
                 <NotesInput addNote={this.addNotesHandler}/>
 
-                <h2>Notes</h2>
+                <h2 className='notes-app__list-title'>Notes</h2>
                 <NotesList 
                 list={this.notesList().filter((note) => !note.archived)}
                 deleteNote={this.deleteNotesHandler}
                 archiveNote={this.archiveNotesHandler}
                 />
 
-                <h2>Archived Notes</h2>
+                <h2 className='notes-app__archived-title'>Archived Notes</h2>
                 <NotesList 
                 list={this.notesList().filter((note) => note.archived)}
                 deleteNote={this.deleteNotesHandler}

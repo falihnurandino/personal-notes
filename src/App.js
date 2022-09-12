@@ -2,7 +2,7 @@ import React from 'react';
 import NotesHeader from './components/NotesHeader';
 import NotesInput from './components/NotesInput';
 import NotesList from './components/NotesList';
-import { getInitialData } from './utils';
+import { getAllNotes } from './utils/local-data';
 
 class App extends React.Component {
   constructor() {
@@ -10,7 +10,7 @@ class App extends React.Component {
 
     this.state = {
       searchQuery: '',
-      notes: getInitialData(),
+      notes: getAllNotes(),
     };
 
     this.addNotesHandler = this.addNotesHandler.bind(this);

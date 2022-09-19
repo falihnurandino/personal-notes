@@ -10,12 +10,13 @@ class NotesInput extends React.Component {
       body: '',
     };
 
-    this.onTitleChangeListener = this.onTitleChangeListener.bind(this);
-    this.onBodyChangeListener = this.onBodyChangeListener.bind(this);
-    this.onSubmitListener = this.onSubmitListener.bind(this);
+    this.onTitleChangeEventHandler = this.onTitleChangeEventHandler.bind(this);
+    this.onBodyChangeEventHandler = this.onBodyChangeEventHandler.bind(this);
+    this.onSubmitChangeEventHandler =
+      this.onSubmitChangeEventHandler.bind(this);
   }
 
-  onTitleChangeListener(event) {
+  onTitleChangeEventHandler(event) {
     const { value } = event.target;
 
     this.setState((prevState) => {
@@ -26,7 +27,7 @@ class NotesInput extends React.Component {
     });
   }
 
-  onBodyChangeListener(event) {
+  onBodyChangeEventHandler(event) {
     this.setState((prevState) => {
       return {
         ...prevState,
@@ -35,32 +36,29 @@ class NotesInput extends React.Component {
     });
   }
 
-  onSubmitListener(event) {
+  onSubmitChangeEventHandler(event) {
     event.preventDefault();
     this.props.addNote(this.state);
-    this.setState({ title: '', body: '' });
   }
 
   render() {
-    const { title, body } = this.state;
-
     return (
       <div className="notes-app__input">
-        <form onSubmit={this.onSubmitListener}>
-          <p>{title.length}/50</p>
+        <form onSubmit={this.onSubmitChangeEventHandler}>
+          {/* <p>{title.length}/50</p> */}
           <input
             type="text"
             placeholder="Title"
-            onChange={this.onTitleChangeListener}
-            value={title}
+            onChange={this.onTitleChangeEventHandler}
+            value={this.state.title}
             required
           />
 
           <textarea
             type="text"
             placeholder="Write your note"
-            onChange={this.onBodyChangeListener}
-            value={body}
+            onChange={this.onBodyChangeEventHandler}
+            value={this.state.body}
             required
           />
           <button type="submit">Create</button>

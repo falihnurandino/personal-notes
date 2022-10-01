@@ -5,6 +5,7 @@ import AddPage from './pages/AddPage';
 import ArchivesNotesPage from './pages/ArchivesNotesPage';
 import DetailNotesPage from './pages/DetailNotesPage';
 import HomePage from './pages/HomePage';
+import PageNotFound from './pages/PageNotFound';
 
 function App() {
   return (
@@ -21,8 +22,12 @@ function App() {
           <Route path="/notes/:id" element={<DetailNotesPage />} />
           <Route path="/archives" element={<ArchivesNotesPage />} />
           <Route path="/notes/new" element={<AddPage />} />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </main>
+      <footer>
+        <p>Copyright &copy; 2022 Falih Nur Andino</p>
+      </footer>
     </div>
   );
 }

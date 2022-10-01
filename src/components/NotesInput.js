@@ -28,10 +28,9 @@ export default class NotesInput extends React.Component {
   }
 
   onBodyChangeEventHandler(event) {
-    this.setState((prevState) => {
+    this.setState(() => {
       return {
-        ...prevState,
-        body: event.target.value,
+        body: event.target.innerHTML,
       };
     });
   }
@@ -54,11 +53,11 @@ export default class NotesInput extends React.Component {
             required
           />
 
-          <textarea
-            type="text"
-            placeholder="Write your note"
-            onChange={this.onBodyChangeEventHandler}
-            value={this.state.body}
+          <div
+            className="notes-app__input-body"
+            data-placeholder="Write your note"
+            contentEditable
+            onInput={this.onBodyChangeEventHandler}
             required
           />
           <button type="submit">Create</button>

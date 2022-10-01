@@ -2,10 +2,10 @@ import React from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import NotesList from '../components/NotesList';
 import SearchBar from '../components/SearchBar';
-import { getAllNotes } from '../utils/local-data';
-import { FaPlusCircle } from 'react-icons/fa';
+import { getActiveNotes } from '../utils/local-data';
+import { HiPlus } from 'react-icons/hi';
 
-function HomePageWrapper() {
+export default function HomePageWrapper() {
   const [searchParams, setSearchParams] = useSearchParams();
   const keyword = searchParams.get('keyword');
 
@@ -24,10 +24,9 @@ class HomePage extends React.Component {
 
     this.state = {
       keyword: props.defaultKeyword || '',
-      notes: getAllNotes(),
+      notes: getActiveNotes(),
     };
-    this.deleteNotesHandler = this.deleteNotesHandler.bind(this);
-    this.archiveNotesHandler = this.archiveNotesHandler.bind(this);
+
     this.onKeywordChangeHandler = this.onKeywordChangeHandler.bind(this);
   }
 
@@ -41,36 +40,12 @@ class HomePage extends React.Component {
     this.props.keywordChange(keyword);
   }
 
-  deleteNotesHandler(id) {
-    this.setState((prevState) => {
-      return {
-        ...prevState,
-        notes: prevState.notes.filter((note) => note.id !== id),
-      };
-    });
-  }
-
-  archiveNotesHandler(id) {
-    const { notes } = this.state;
-    notes.forEach((note) => {
-      if (note.id === id) note.archived = !note.archived;
-    });
-    this.setState((prevState) => ({ ...prevState, notes }));
-  }
-
-  notesList() {
-    const { keyword, notes } = this.state;
-
-    const list = keyword.trim().length
-      ? notes.filter((note) =>
-          note.title.toLowerCase().includes(keyword.toLowerCase())
-        )
-      : notes;
-
-    return list.sort((a, b) => a.date - b.date).reverse();
-  }
-
   render() {
+    const notes = this.state.notes.filter((note) => {
+      return note.title
+        .toLowerCase()
+        .includes(this.state.keyword.toLowerCase());
+    });
     return (
       <section>
         <h2>Active Notes</h2>
@@ -78,15 +53,13 @@ class HomePage extends React.Component {
           keyword={this.state.keyword}
           keywordChange={this.onKeywordChangeHandler}
         />
-        <NotesList notes={this.notesList().filter((note) => !note.archived)} />
+        <NotesList notes={notes} />
         <div className="homepage__action">
           <Link to="/notes/new">
-            <FaPlusCircle className="icon" />
+            <HiPlus className="icon" />
           </Link>
         </div>
       </section>
     );
   }
 }
-
-export default HomePageWrapper;

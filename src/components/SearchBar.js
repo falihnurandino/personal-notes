@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function SearchBar({ keyword, keywordChange }) {
+export default function SearchBar({ keyword, keywordChange }) {
   return (
     <div className="search-bar">
       <input
@@ -18,5 +18,3 @@ SearchBar.propTypes = {
   keywordChange: PropTypes.func.isRequired,
   keyword: PropTypes.string.isRequired,
 };
-
-export default SearchBar;

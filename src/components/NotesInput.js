@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class NotesInput extends React.Component {
+export default class NotesInput extends React.Component {
   constructor(props) {
     super(props);
 
@@ -45,7 +45,7 @@ class NotesInput extends React.Component {
     return (
       <div className="notes-app__input">
         <form onSubmit={this.onSubmitChangeEventHandler}>
-          {/* <p>{title.length}/50</p> */}
+          <p>{this.state.title.length}/50</p>
           <input
             type="text"
             placeholder="Title"
@@ -71,5 +71,3 @@ class NotesInput extends React.Component {
 NotesInput.propTypes = {
   addNote: PropTypes.func.isRequired,
 };
-
-export default NotesInput;

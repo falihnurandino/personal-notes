@@ -2,29 +2,24 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import NotesItem from './NotesItem';
 
-function NotesList({ list, deleteNote, archiveNote }) {
-  if (list.length) {
+export default function NotesList({ notes }) {
+  if (notes.length) {
     return (
       <div className="notes-list">
-        {list.map((item) => (
-          <NotesItem
-            note={item}
-            key={item.id}
-            deleteNote={deleteNote}
-            archiveNote={archiveNote}
-          />
+        {notes.map((note) => (
+          <NotesItem key={note.id} id={note.id} note={note} />
         ))}
       </div>
     );
   }
 
-  return <p>Tidak ada catatan</p>;
+  return (
+    <div className="notes-list-empty not-found">
+      <h2>No Notes Found</h2>
+    </div>
+  );
 }
 
 NotesList.propTypes = {
-  list: PropTypes.arrayOf(PropTypes.object).isRequired,
-  deleteNote: PropTypes.func.isRequired,
-  archiveNote: PropTypes.func.isRequired,
+  notes: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
-
-export default NotesList;

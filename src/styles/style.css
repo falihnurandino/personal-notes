@@ -46,7 +46,7 @@ body {
 }
 
 .navigation a {
-  font-size: x-large;
+  font-size: 1.75rem;
   color: var(--primary-color);
   font-weight: bold;
 }
@@ -83,14 +83,13 @@ main h2 {
   color: var(--primary-color);
 }
 
-.notes-app__input input,
-.notes-app__input textarea {
+.notes-app__input input {
   display: block;
   width: 100%;
 }
 
 input,
-textarea {
+.notes-app__input-body {
   padding: 12px;
   margin: 12px 0;
   background-color: transparent;
@@ -102,7 +101,7 @@ textarea {
   font-weight: 700;
 }
 
-textarea {
+.notes-app__input-body {
   padding: 12px;
   margin-bottom: 12px;
   min-height: 300px;
@@ -111,10 +110,14 @@ textarea {
   outline: none;
 }
 
-input::placeholder,
-textarea::placeholder {
+input::placeholder {
   color: #8e8e93;
   font-weight: bold;
+}
+
+[data-placeholder]:empty::before {
+  content: attr(data-placeholder);
+  color: #8e8e93;
 }
 
 .notes-app__input button {
@@ -263,10 +266,6 @@ footer {
   }
 }
 @media only screen and (max-width: 375px) {
-  .notes-app__header {
-    padding: 2rem;
-  }
-
   .notes-item {
     max-width: 500px;
   }
@@ -282,7 +281,7 @@ footer {
     max-width: 500px;
   }
   .notes-app__header {
-    padding: 2rem;
+    padding: 2rem 1.75rem 1rem 1.75rem;
   }
 }
 

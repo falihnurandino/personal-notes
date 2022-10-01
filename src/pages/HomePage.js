@@ -48,7 +48,7 @@ class HomePage extends React.Component {
     });
     return (
       <section>
-        <h2>Active Notes</h2>
+        <h2 tabIndex="0">Active Notes</h2>
         <SearchBar
           keyword={this.state.keyword}
           keywordChange={this.onKeywordChangeHandler}

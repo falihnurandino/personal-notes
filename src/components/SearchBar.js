@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 export default function SearchBar({ keyword, keywordChange }) {
   return (
-    <div className="search-bar">
+    <div className="search-bar" tabIndex="0">
       <input
         type="text"
         placeholder="Search..."

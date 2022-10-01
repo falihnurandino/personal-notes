@@ -25,7 +25,7 @@ function App() {
           <Route path="*" element={<PageNotFound />} />
         </Routes>
       </main>
-      <footer>
+      <footer tabIndex="0">
         <p>Copyright &copy; 2022 Falih Nur Andino</p>
       </footer>
     </div>

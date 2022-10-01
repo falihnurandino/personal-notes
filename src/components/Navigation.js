@@ -1,16 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-function Navigation() {
+export default function Navigation() {
   return (
     <nav className="navigation">
       <ul>
         <li>
-          <Link to="/archives">Arsip</Link>
+          <Link to="/archives">Archives</Link>
         </li>
       </ul>
     </nav>
   );
 }
-
-export default Navigation;

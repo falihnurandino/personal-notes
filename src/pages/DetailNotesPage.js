@@ -16,7 +16,7 @@ export default function DetailNotesPage() {
 
   function onArchiveHandler(id) {
     archiveNote(id);
-    navigate('/');
+    navigate('/archives');
   }
   function onUnArchiveHandler(id) {
     unarchiveNote(id);

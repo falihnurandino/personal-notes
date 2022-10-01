@@ -1,11 +1,9 @@
 import React from 'react';
 
-function PageNotFound() {
+export default function PageNotFound() {
   return (
-    <section>
-      <p>404 page not found</p>
-    </section>
+    <div className="not-found">
+      <img src="/assets/404.svg" alt="Not Found" />
+    </div>
   );
 }
-
-export default PageNotFound;

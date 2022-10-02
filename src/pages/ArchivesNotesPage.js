@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useSearchParams } from 'react-router-dom';
 import NotesList from '../components/NotesList';
 import SearchBar from '../components/SearchBar';
@@ -61,3 +62,8 @@ class ArchivesNotesPage extends React.Component {
     );
   }
 }
+
+ArchivesNotesPage.propTypes = {
+  defaultKeyword: PropTypes.string,
+  keywordChange: PropTypes.func.isRequired,
+};

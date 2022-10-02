@@ -7,6 +7,7 @@ import {
   getNote,
   unarchiveNote,
 } from '../utils/local-data';
+import PageNotFound from './PageNotFound';
 
 export default function DetailNotesPage() {
   let { id } = useParams();
@@ -29,12 +30,16 @@ export default function DetailNotesPage() {
 
   return (
     <>
-      <NotesDetail
-        note={note}
-        onArchive={onArchiveHandler}
-        onUnArchive={onUnArchiveHandler}
-        onDelete={onDeleteHandler}
-      />
+      {note ? (
+        <NotesDetail
+          note={note}
+          onArchive={onArchiveHandler}
+          onUnArchive={onUnArchiveHandler}
+          onDelete={onDeleteHandler}
+        />
+      ) : (
+        <PageNotFound />
+      )}
     </>
   );
 }

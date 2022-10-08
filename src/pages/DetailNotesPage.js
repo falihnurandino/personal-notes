@@ -1,31 +1,49 @@
 import React from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import Loader from '../components/Loader';
 import NotesDetail from '../components/NotesDetail';
 import {
   archiveNote,
   deleteNote,
   getNote,
   unarchiveNote,
-} from '../utils/local-data';
+} from '../utils/network-data';
 import PageNotFound from './PageNotFound';
 
 export default function DetailNotesPage() {
-  let { id } = useParams();
-  let note = getNote(id);
+  const { id } = useParams();
+  const [note, setNote] = React.useState('');
+  const [loader, setLoader] = React.useState(true);
 
   const navigate = useNavigate();
 
-  function onArchiveHandler(id) {
-    archiveNote(id);
+  async function onArchiveHandler(id) {
+    await archiveNote(id);
     navigate('/archives');
   }
-  function onUnArchiveHandler(id) {
-    unarchiveNote(id);
+  async function onUnArchiveHandler(id) {
+    await unarchiveNote(id);
     navigate('/');
   }
-  function onDeleteHandler(id) {
-    deleteNote(id);
+  async function onDeleteHandler(id) {
+    await deleteNote(id);
     navigate('/');
+  }
+
+  React.useEffect(() => {
+    const getDetailNote = async () => {
+      const { error, data } = await getNote(id);
+      if (!error) {
+        setNote(data);
+      }
+      setLoader(false);
+    };
+
+    getDetailNote();
+  }, [id]);
+
+  if (loader) {
+    return <Loader />;
   }
 
   return (

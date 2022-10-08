@@ -2,19 +2,28 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  transition: background 0.3s ease-in;
 }
 
 :root {
   --primary-color: #14b8a6;
+  --background-color: #0f172a;
+  --font-color: #ffffff;
+}
+
+[data-theme='light'] {
+  --font-color: #14b8a6;
+  --background-color: #ffffff;
 }
 
 li {
   list-style: none;
+  display: inline-block;
 }
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #0f172a;
+  background-color: var(--background-color);
 }
 
 .not-found {
@@ -49,6 +58,36 @@ body {
   font-size: 1.75rem;
   color: var(--primary-color);
   font-weight: bold;
+}
+
+.toggle-theme,
+.toggle-locale {
+  background-color: transparent;
+  border: 0;
+  cursor: pointer;
+  color: var(--font-color);
+  display: flex;
+  align-items: center;
+  margin: 0 16px;
+}
+
+.toggle-theme {
+  font-size: 36px;
+}
+
+.toggle-locale {
+  font-size: 40px;
+}
+
+.button-logout {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: transparent;
+  border: 0;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--font-color);
 }
 
 /* main */
@@ -171,7 +210,7 @@ input::placeholder {
 .notes-item__body {
   margin-top: 12px;
   line-height: 1.5;
-  color: #ffffff;
+  color: var(--font-color);
   word-wrap: break-word;
   overflow: hidden;
   display: -webkit-box;
@@ -205,7 +244,7 @@ input::placeholder {
 
 .detail-page__body {
   font-size: 1.5rem;
-  color: #ffffff;
+  color: var(--font-color);
   margin-top: 1rem;
   word-wrap: break-word;
 }
@@ -221,6 +260,8 @@ input::placeholder {
   background-color: var(--primary-color);
   padding: 8px;
   cursor: pointer;
+  color: #ffffff;
+  font-size: 24px;
 }
 
 .action:hover {
@@ -250,6 +291,60 @@ input::placeholder {
 .icon:hover {
   background-color: #15998a;
   color: #ffffff;
+}
+
+/* Login and Register page */
+
+.login-page,
+.register-page p {
+  color: var(--primary-color);
+}
+.login-page a,
+.register-page a {
+  color: var(--primary-color);
+}
+
+.login-input,
+.register-input {
+  margin: 32px 0;
+}
+
+.login-input label,
+.register-input label {
+  font-size: 24px;
+  color: var(--primary-color);
+}
+
+.login-input input,
+.register-input input {
+  font-size: 18px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  display: block;
+  width: 100%;
+  padding: 12px;
+  background-color: transparent;
+  border-radius: 16px;
+  border: 3px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.login-input button,
+.register-input button {
+  font-weight: bold;
+  font-size: 20px;
+  width: 100%;
+  padding: 12px;
+  border: 0;
+  border-radius: 16px;
+  background-color: var(--primary-color);
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.login-input button:hover,
+.register-input button:hover {
+  background-color: #15998a;
 }
 
 footer {
@@ -282,6 +377,7 @@ footer {
   }
   .notes-app__header {
     padding: 2rem 1.75rem 1rem 1.75rem;
+    display: block;
   }
 }
 
@@ -304,5 +400,45 @@ footer {
 @media only screen and (min-width: 1200px) {
   .notes-list {
     grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.loader-wrapper {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+  margin-top: 1em;
+}
+
+.loader-wrapper .lmns {
+  display: inline-flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3px;
+  margin: 0 auto;
+  padding: 1em;
+}
+.lmns span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  transform: translateY(-100%);
+  animation: wave 0.65s ease-in-out alternate infinite;
+}
+.lmns span:nth-of-type(1) {
+  animation-delay: -0.4s;
+}
+.lmns span:nth-of-type(2) {
+  animation-delay: -0.2s;
+}
+@keyframes wave {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(100%);
   }
 }

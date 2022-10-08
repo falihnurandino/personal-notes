@@ -5,7 +5,7 @@ import { FaTrash } from 'react-icons/fa';
 export default function DeleteButton({ id, onDelete }) {
   return (
     <button className="action" type="submit" onClick={() => onDelete(id)}>
-      <FaTrash className="action" />
+      <FaTrash />
     </button>
   );
 }

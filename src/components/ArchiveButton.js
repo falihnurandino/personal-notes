@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FaArchive } from 'react-icons/fa';
+import { MdArchive } from 'react-icons/md';
 
 export default function ArchiveButton({
   id,
@@ -13,11 +13,7 @@ export default function ArchiveButton({
       className="action"
       onClick={() => (archived ? onUnArchive(id) : onArchive(id))}
     >
-      {archived ? (
-        <FaArchive className="action" fill="#fff" />
-      ) : (
-        <FaArchive className="action" />
-      )}
+      {archived ? <MdArchive fill="#fff" /> : <MdArchive />}
     </button>
   );
 }
